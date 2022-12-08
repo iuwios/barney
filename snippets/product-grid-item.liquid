@@ -49,6 +49,16 @@
     assign preorder = false
     assign badge = ''
 
+
+
+     
+assign show_sale_badge = true  
+assign badge ='Sale'
+
+
+
+
+     
     if product_tags contains '_badge_'
       assign replace_symbol = ' '
 
@@ -95,6 +105,7 @@
     {%- endif -%}
   {%- endcapture -%}
 
+
   {%- capture product_image_link -%}
     <a href="{{ product.url | within: collection }}" class="product-block__image__link" aria-label="{{ product.title | strip_html }}" title="{{ product.title | strip_html }}" data-product-link>
       {%- if product.media[1].preview_image != blank and settings.hover_image -%}
@@ -111,7 +122,7 @@
     {%- if product.object_type == 'product' and settings.show_quick_view -%}
       <div class="product-block__image-inner">
         <a href="{{ product.url | within: collection }}" class="quickView-button button" data-trigger-quickview="{{ product.handle }}" data-focus-element>{{ 'collections.grid.quick_view' | t }}</a>
-      </div>
+</div>
     {%- endif -%}
   {%- endcapture -%}
 
@@ -263,8 +274,9 @@
                 <div class="swatch__label">
                   <span class="swatch__color swatch__color--{{ value | handle }}" style="background-color: {{ value | split: ' ' | last | handle }}; background-image: url({{ value | handle | append: '.' | append: file_extension | asset_url }})"></span>
                 </div>
-                <a href="#" class="swatch__link">{{ value }}</a>
-              </div>
+                <a href="#" class="swatch__link">{{ value }}  {% render 'banana-stand-product-list-container', product: product %}
+</a>
+</div>
             {%- endfor -%}
           </div>
         {%- endif -%}

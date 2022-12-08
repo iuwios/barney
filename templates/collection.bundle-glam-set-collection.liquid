@@ -3,14 +3,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
 <style>
 
-.no-touch .product-block__image:hover .product-block__image-hover,
-.no-touch .product-block__image:hover .product-block__image-inner {
+.product-block__image:hover .product-block__image-hover,
+.product-block__image:hover .product-block__image-inner {
     opacity: 1;
     visibility: visible;
     will-change: transform;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease, visibility 0s linear 0s;
   }
-  .no-touch .product-block__image:hover .product-block__image-hover {
+  .product-block__image:hover .product-block__image-hover {
     
   }
 }
@@ -225,3 +225,7 @@
 {% render 'glam-set-collection-fourth-row-products' %}
 
 
+<script>
+  document.querySelector('.no-touch').classList.remove('no-touch')
+
+</script>

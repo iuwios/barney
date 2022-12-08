@@ -49,6 +49,16 @@
     assign preorder = false
     assign badge = ''
 
+
+
+     
+assign show_sale_badge = true  
+assign badge ='Sale'
+
+
+
+
+     
     if product_tags contains '_badge_'
       assign replace_symbol = ' '
 
@@ -65,7 +75,6 @@
     endif
   -%}
 
-  
   {%- capture product_badge -%}
     {%- if product.object_type == 'product' -%}
       {%- if badge != '' and show_sale_badge -%}
@@ -96,12 +105,9 @@
     {%- endif -%}
   {%- endcapture -%}
 
-
   {% if index != flip %}
-
     {%- capture product_image_link -%}
       <a href="{{ product.url | within: collection }}" class="product-block__image__link" aria-label="{{ product.title | strip_html }}" title="{{ product.title | strip_html }}" data-product-link>
-        
         {%- if product.media[1].preview_image != blank and settings.hover_image -%}
           <div class="product-block__image-hover">
             <span class="product-block__image-hover__image lazyload" data-bgset="{% render 'bgset', image: product.media[1].preview_image %}" data-sizes="auto"></span>
